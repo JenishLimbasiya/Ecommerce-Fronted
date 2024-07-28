@@ -9,6 +9,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import Login from "./Login";
 
 export default function Header() {
@@ -16,7 +23,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="flex h-20 w-full items-center px-4 md:px-6 shadow">
+      <header className="fixed top-0 flex h-20 w-full items-center px-4 bg-transparent z-100">
         <div className="flex items-center gap-10">
           <Link to="#" className="hidden lg:flex">
             <img src={Logo} alt="Logo" width={150} />
@@ -416,9 +423,41 @@ export default function Header() {
           <Link to="#" className="hover:text-teal-500 px-4">
             Contact
           </Link>
-          <Link to="#" className="hover:text-teal-500 px-4">
-            Pages
-          </Link>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <div className="hover:text-teal-500 px-4 flex items-center cursor-pointer">
+                Pages
+                <svg
+                  className="ml-1 w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56">
+              {/* <DropdownMenuSeparator /> */}
+              <DropdownMenuGroup>
+                <DropdownMenuItem>Flash Sale</DropdownMenuItem>
+                <DropdownMenuItem>Manufacturers/Publishers</DropdownMenuItem>
+                <DropdownMenuItem>Authors</DropdownMenuItem>
+                <DropdownMenuItem>FAQs</DropdownMenuItem>
+                <DropdownMenuItem>Terms & conditions</DropdownMenuItem>
+                <DropdownMenuItem>Customer Refund Policy</DropdownMenuItem>
+                <DropdownMenuItem>Vendor Refund Policy</DropdownMenuItem>
+              </DropdownMenuGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           <Button
             variant="contained"
             sx={{
