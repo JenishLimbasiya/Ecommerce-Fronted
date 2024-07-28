@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -28,25 +28,30 @@ const style = {
 };
 
 function AuthModal({ isModalOpen, setIsModalOpen }) {
-  const [isRegister, setIsRegister] = React.useState(false);
+  const [isRegister, setIsRegister] = useState(false);
 
   // Login state
-  const [loginEmail, setLoginEmail] = React.useState("");
-  const [loginPassword, setLoginPassword] = React.useState("");
-  const [showLoginPassword, setShowLoginPassword] = React.useState(false);
-  const [loginEmailError, setLoginEmailError] = React.useState("");
-  const [loginPasswordError, setLoginPasswordError] = React.useState("");
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const [showLoginPassword, setShowLoginPassword] = useState(false);
+  const [loginEmailError, setLoginEmailError] = useState("");
+  const [loginPasswordError, setLoginPasswordError] = useState("");
 
   // Register state
-  const [registerName, setRegisterName] = React.useState("");
-  const [registerEmail, setRegisterEmail] = React.useState("");
-  const [registerPassword, setRegisterPassword] = React.useState("");
-  const [registerNameError, setRegisterNameError] = React.useState("");
-  const [registerEmailError, setRegisterEmailError] = React.useState("");
-  const [registerPasswordError, setRegisterPasswordError] = React.useState("");
+  const [registerName, setRegisterName] = useState("");
+  const [registerEmail, setRegisterEmail] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
+  const [showRegisterPassword, setShowRegisterPassword] = useState(false);
+  const [registerNameError, setRegisterNameError] = useState("");
+  const [registerEmailError, setRegisterEmailError] = useState("");
+  const [registerPasswordError, setRegisterPasswordError] = useState("");
 
   const handleClickShowLoginPassword = () => {
     setShowLoginPassword(!showLoginPassword);
+  };
+
+  const handleClickShowRegisterPassword = () => {
+    setShowRegisterPassword(!showRegisterPassword);
   };
 
   const handleLoginSubmit = (event) => {
@@ -106,7 +111,20 @@ function AuthModal({ isModalOpen, setIsModalOpen }) {
   return (
     <Modal
       open={isModalOpen}
-      onClose={() => setIsModalOpen(false)}
+      onClose={() => {
+        setIsModalOpen(false);
+        setIsRegister(false);
+        setLoginPasswordError("");
+        setLoginEmailError("");
+        setRegisterPasswordError("");
+        setRegisterEmailError("");
+        setRegisterNameError("");
+        setLoginPassword("");
+        setLoginEmail("");
+        setRegisterPassword("");
+        setRegisterEmail("");
+        setRegisterName("");
+      }}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
@@ -199,7 +217,7 @@ function AuthModal({ isModalOpen, setIsModalOpen }) {
             <TextField
               fullWidth
               id="register-password"
-              type="password"
+              type={showRegisterPassword ? "text" : "password"}
               margin="normal"
               variant="outlined"
               value={registerPassword}
@@ -213,6 +231,21 @@ function AuthModal({ isModalOpen, setIsModalOpen }) {
                   height: 44,
                   borderRadius: 1,
                 },
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowRegisterPassword}
+                      edge="end"
+                    >
+                      {showRegisterPassword ? (
+                        <VisibilityOff />
+                      ) : (
+                        <Visibility />
+                      )}
+                    </IconButton>
+                  </InputAdornment>
+                ),
               }}
             />
             <Button
@@ -235,7 +268,15 @@ function AuthModal({ isModalOpen, setIsModalOpen }) {
             <Divider sx={{ my: 2 }}>Or</Divider>
             <Typography variant="body2" align="center" sx={{ mt: 2 }}>
               Already have an account?{" "}
-              <Link href="#" onClick={() => setIsRegister(false)}>
+              <Link
+                href="#"
+                onClick={() => {
+                  setIsRegister(false),
+                    setRegisterName(""),
+                    setRegisterEmail(""),
+                    setRegisterPassword("");
+                }}
+              >
                 Login
               </Link>
             </Typography>
@@ -357,7 +398,12 @@ function AuthModal({ isModalOpen, setIsModalOpen }) {
             </Button>
             <Typography variant="body2" align="center" sx={{ mt: 2 }}>
               Don't have an account?{" "}
-              <Link href="#" onClick={() => setIsRegister(true)}>
+              <Link
+                href="#"
+                onClick={() => {
+                  setIsRegister(true), setLoginEmail(""), setLoginPassword("");
+                }}
+              >
                 Register
               </Link>
             </Typography>
