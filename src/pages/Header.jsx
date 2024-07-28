@@ -23,7 +23,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 flex h-20 w-full items-center px-4 bg-transparent z-100">
+      <header className="fixed top-0 flex h-20 w-full items-center px-4 bg-[#fafafa] z-[100]">
         <div className="flex items-center gap-10">
           <Link to="#" className="hidden lg:flex">
             <img src={Logo} alt="Logo" width={150} />
