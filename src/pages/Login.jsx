@@ -274,7 +274,10 @@ function AuthModal({ isModalOpen, setIsModalOpen }) {
                   setIsRegister(false),
                     setRegisterName(""),
                     setRegisterEmail(""),
-                    setRegisterPassword("");
+                    setRegisterPassword(""),
+                    setRegisterPasswordError(""),
+                    setRegisterEmailError(""),
+                    setRegisterNameError("");
                 }}
               >
                 Login
@@ -401,7 +404,11 @@ function AuthModal({ isModalOpen, setIsModalOpen }) {
               <Link
                 href="#"
                 onClick={() => {
-                  setIsRegister(true), setLoginEmail(""), setLoginPassword("");
+                  setIsRegister(true),
+                    setLoginEmail(""),
+                    setLoginPassword(""),
+                    setLoginEmailError(""),
+                    setLoginPasswordError("");
                 }}
               >
                 Register
