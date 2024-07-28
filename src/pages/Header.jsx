@@ -41,7 +41,7 @@ export default function Header() {
                     height="21"
                     viewBox="0 0 20.347 24.101"
                     fill="currentColor"
-                    class="max-h-full max-w-full"
+                    className="max-h-full max-w-full"
                   >
                     <g id="Grocery" transform="translate(-39.481 0.052)">
                       <path
@@ -51,7 +51,7 @@ export default function Header() {
                         transform="translate(-294.289 -380.346)"
                         fill="currentColor"
                         stroke="currentColor"
-                        stroke-width="0.1"
+                        strokeWidth="0.1"
                       ></path>
                       <path
                         id="Path_17387"
@@ -60,7 +60,7 @@ export default function Header() {
                         transform="translate(-0.5)"
                         fill="currentColor"
                         stroke="currentColor"
-                        stroke-width="0.1"
+                        strokeWidth="0.1"
                       ></path>
                     </g>
                   </svg>
@@ -76,7 +76,7 @@ export default function Header() {
                     width="21"
                     height="21"
                     fill="currentColor"
-                    class="max-h-full max-w-full"
+                    className="max-h-full max-w-full"
                   >
                     <path
                       d="M213.056,231.438a8,8,0,1,0,5.888-14.876c-18.527-7.335-42.3-11.374-66.944-11.374s-48.417,4.039-66.944,11.374a8,8,0,1,0,5.888,14.876c16.7-6.61,38.382-10.25,61.056-10.25S196.357,224.828,213.056,231.438Z"
@@ -98,7 +98,7 @@ export default function Header() {
                     height="21"
                     viewBox="0 0 18.814 24"
                     fill="currentColor"
-                    class="max-h-full max-w-full"
+                    className="max-h-full max-w-full"
                   >
                     <g id="Makup" transform="translate(-507.818 -485.385)">
                       <path
@@ -128,7 +128,7 @@ export default function Header() {
                     height="21"
                     viewBox="0 0 23.878 24.3"
                     fill="currentColor"
-                    class="max-h-full max-w-full"
+                    className="max-h-full max-w-full"
                   >
                     <path
                       id="Bags"
@@ -136,8 +136,8 @@ export default function Header() {
                       transform="translate(-325.483 -36.645)"
                       fill="currentColor"
                       stroke="#fff"
-                      stroke-width="0.3"
-                      fill-rule="evenodd"
+                      strokeWidth="0.3"
+                      fillRule="evenodd"
                     ></path>
                   </svg>
                   Bags
@@ -151,7 +151,7 @@ export default function Header() {
                     height="21"
                     viewBox="0 0 14.735 24.503"
                     fill="currentColor"
-                    class="max-h-full max-w-full"
+                    className="max-h-full max-w-full"
                   >
                     <g id="Cloth" transform="translate(-255.389 -266.539)">
                       <path
@@ -161,7 +161,7 @@ export default function Header() {
                         transform="translate(0 0.5)"
                         fill="currentColor"
                         stroke="currentColor"
-                        stroke-width="0.5"
+                        strokeWidth="0.5"
                       ></path>
                     </g>
                   </svg>
@@ -176,7 +176,7 @@ export default function Header() {
                     height="21"
                     viewBox="0 0 18.1 24.1"
                     fill="currentColor"
-                    class="max-h-full max-w-full"
+                    className="max-h-full max-w-full"
                   >
                     <g id="Furniture" transform="translate(-47.95 -583.95)">
                       <path
@@ -186,7 +186,7 @@ export default function Header() {
                         transform="translate(-5)"
                         fill="currentColor"
                         stroke="currentColor"
-                        stroke-width="0.1"
+                        strokeWidth="0.1"
                       ></path>
                       <path
                         id="Path_17416"
@@ -195,7 +195,7 @@ export default function Header() {
                         transform="translate(0 -15)"
                         fill="currentColor"
                         stroke="currentColor"
-                        stroke-width="0.1"
+                        strokeWidth="0.1"
                       ></path>
                     </g>
                   </svg>
@@ -210,7 +210,7 @@ export default function Header() {
                     height="21"
                     viewBox="0 0 20.347 24.101"
                     fill="currentColor"
-                    class="max-h-full max-w-full"
+                    className="max-h-full max-w-full"
                   >
                     <g id="Grocery" transform="translate(-39.481 0.052)">
                       <path
@@ -220,7 +220,7 @@ export default function Header() {
                         transform="translate(-294.289 -380.346)"
                         fill="currentColor"
                         stroke="currentColor"
-                        stroke-width="0.1"
+                        strokeWidth="0.1"
                       ></path>
                       <path
                         id="Path_17387"
@@ -229,7 +229,7 @@ export default function Header() {
                         transform="translate(-0.5)"
                         fill="currentColor"
                         stroke="currentColor"
-                        stroke-width="0.1"
+                        strokeWidth="0.1"
                       ></path>
                     </g>
                   </svg>
@@ -244,7 +244,7 @@ export default function Header() {
                     height="21"
                     viewBox="0 0 24.6 19.335"
                     fill="currentColor"
-                    class="max-h-full max-w-full"
+                    className="max-h-full max-w-full"
                   >
                     <g id="Books" transform="translate(-24.7 -30.187)">
                       <g
@@ -264,7 +264,7 @@ export default function Header() {
                             transform="translate(-25 -34.629)"
                             fill="currentColor"
                             stroke="currentColor"
-                            stroke-width="0.6"
+                            strokeWidth="0.6"
                           ></path>
                         </g>
                         <g
@@ -279,7 +279,7 @@ export default function Header() {
                             transform="translate(-56.088 -34.629)"
                             fill="currentColor"
                             stroke="currentColor"
-                            stroke-width="0.6"
+                            strokeWidth="0.6"
                           ></path>
                         </g>
                       </g>
@@ -295,7 +295,7 @@ export default function Header() {
                           transform="translate(-28.998 -30.542)"
                           fill="currentColor"
                           stroke="currentColor"
-                          stroke-width="0.6"
+                          strokeWidth="0.6"
                         ></path>
                       </g>
                     </g>
@@ -311,9 +311,9 @@ export default function Header() {
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    class="max-h-full max-w-full"
+                    className="max-h-full max-w-full"
                   >
-                    <g clip-path="url(#clip0_1004_925)">
+                    <g clipPath="url(#clip0_1004_925)">
                       <path
                         d="M3.19965 21.3144C2.56981 21.3133 1.96187 21.0832 1.4892 20.6669C1.01653 20.2506 0.711397 19.6766 0.630699 19.052L0.0877974 14.8126C-0.0527209 13.743 -0.0253611 12.658 0.168888 11.5969C0.515551 9.72898 1.31632 7.91174 2.48362 6.34182C2.57992 6.21209 2.72381 6.12591 2.88364 6.10227C3.04347 6.07862 3.20615 6.11943 3.33589 6.21573C3.46562 6.31202 3.55179 6.45591 3.57544 6.61574C3.59909 6.77557 3.55828 6.93825 3.46198 7.06799C2.40456 8.48951 1.68001 10.1324 1.3666 11.8191C1.19591 12.7558 1.17224 13.7133 1.29645 14.6573L1.83936 18.8967C1.88657 19.258 2.07489 19.5858 2.36314 19.8087C2.65139 20.0315 3.01613 20.1312 3.37765 20.0859L3.85122 20.0255C3.93044 20.0154 4.01089 20.0209 4.08796 20.0419C4.16503 20.0629 4.23721 20.0988 4.30039 20.1477C4.36356 20.1966 4.4165 20.2574 4.45616 20.3267C4.49583 20.3961 4.52145 20.4725 4.53157 20.5517C4.54168 20.631 4.5361 20.7114 4.51512 20.7885C4.49415 20.8656 4.4582 20.9377 4.40933 21.0009C4.36046 21.0641 4.29963 21.117 4.2303 21.1567C4.16098 21.1964 4.08452 21.222 4.00529 21.2321L3.53172 21.2925C3.42161 21.3069 3.31069 21.3142 3.19965 21.3144Z"
                         fill="currentColor"
@@ -347,7 +347,7 @@ export default function Header() {
                     height="21"
                     viewBox="0 0 24.2 24.2"
                     fill="currentColor"
-                    class="max-h-full max-w-full"
+                    className="max-h-full max-w-full"
                   >
                     <g id="Medicine" transform="translate(-332.9 -1656.038)">
                       <g
@@ -362,7 +362,7 @@ export default function Header() {
                           transform="translate(-333 -1656.138)"
                           fill="currentColor"
                           stroke="currentColor"
-                          stroke-width="0.2"
+                          strokeWidth="0.2"
                         ></path>
                       </g>
                       <g
@@ -378,7 +378,7 @@ export default function Header() {
                           transform="translate(0.393 0.393)"
                           fill="#fff"
                           stroke="currentColor"
-                          stroke-width="0.2"
+                          strokeWidth="0.2"
                         ></line>
                         <path
                           id="Path_17421"
@@ -387,7 +387,7 @@ export default function Header() {
                           transform="translate(-536.537 -1859.676)"
                           fill="currentColor"
                           stroke="currentColor"
-                          stroke-width="0.2"
+                          strokeWidth="0.2"
                         ></path>
                       </g>
                       <g
@@ -402,7 +402,7 @@ export default function Header() {
                           transform="translate(-383.216 -1751.641)"
                           fill="currentColor"
                           stroke="currentColor"
-                          stroke-width="0.2"
+                          strokeWidth="0.2"
                         ></path>
                       </g>
                     </g>
