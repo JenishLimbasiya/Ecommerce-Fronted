@@ -16,7 +16,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import Login from "./Login";
+// import Login from "./Login";
+import AuthMain from "./authentication/authMain";
 
 export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -485,7 +486,8 @@ export default function Header() {
           </Button>
         </div>
       </header>
-      <Login isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+
+      <AuthMain isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
     </>
   );
 }
