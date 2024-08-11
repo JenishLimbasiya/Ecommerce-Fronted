@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-
 import TextField from "@mui/material/TextField";
 import Link from "@mui/material/Link";
 import InputLabel from "@mui/material/InputLabel";
@@ -15,19 +14,25 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import Divider from "@mui/material/Divider";
 
 function LoginComponent(props) {
-  const {
-    loginEmail,
-    setLoginEmail,
-    loginEmailError,
-    showLoginPassword,
-    loginPassword,
-    setLoginPassword,
-    loginPasswordError,
-    setLoginEmailError,
-    setLoginPasswordError,
-    setShowLoginPassword,
-    setModalType,
-  } = props;
+  const { setModalType, setResetState } = props;
+
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const [showLoginPassword, setShowLoginPassword] = useState(false);
+  const [loginEmailError, setLoginEmailError] = useState("");
+  const [loginPasswordError, setLoginPasswordError] = useState("");
+
+  const resetLoginState = () => {
+    setLoginEmail("");
+    setLoginPassword("");
+    setShowLoginPassword(false);
+    setLoginEmailError("");
+    setLoginPasswordError("");
+  };
+
+  useEffect(() => {
+    setResetState(resetLoginState);
+  }, []);
 
   const handleClickShowLoginPassword = () => {
     setShowLoginPassword(!showLoginPassword);

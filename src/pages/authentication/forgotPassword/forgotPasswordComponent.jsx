@@ -6,17 +6,24 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function ForgotPasswordComponent(props) {
-  const {
-    setModalType,
-    forgotEmailError,
-    forgotEmail,
-    setForgotEmail,
-    setForgotEmailError,
-  } = props;
+  const { setModalType, setResetState } = props;
+
+  const [forgotEmail, setForgotEmail] = useState("");
+  const [forgotEmailError, setForgotEmailError] = useState("");
+
+  const resetForgotState = () => {
+    setForgotEmail("");
+    setForgotEmailError("");
+  };
+
+  useEffect(() => {
+    setResetState(resetForgotState);
+  }, []);
+
   const handleForgotPasswordSubmit = (event) => {
     event.preventDefault();
 
@@ -42,7 +49,7 @@ function ForgotPasswordComponent(props) {
   return (
     <>
       <Typography id="forgot-password-modal-description" sx={{ mt: 2 }}>
-        We'll send you a OTP to reset your password
+        We'll send you an OTP to reset your password
       </Typography>
       <Box
         component="form"

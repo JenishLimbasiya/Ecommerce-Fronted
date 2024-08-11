@@ -19,25 +19,7 @@ const style = {
 
 function AuthMain({ isModalOpen, setIsModalOpen }) {
   const [modalType, setModalType] = useState("login");
-  const [forgotEmail, setForgotEmail] = useState("");
-  const [forgotEmailError, setForgotEmailError] = useState("");
-
-  console.log("forgotEmailError", forgotEmailError);
-  // Login state
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
-  const [showLoginPassword, setShowLoginPassword] = useState(false);
-  const [loginEmailError, setLoginEmailError] = useState("");
-  const [loginPasswordError, setLoginPasswordError] = useState("");
-
-  // Register state
-  const [registerName, setRegisterName] = useState("");
-  const [registerEmail, setRegisterEmail] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
-  const [showRegisterPassword, setShowRegisterPassword] = useState(false);
-  const [registerNameError, setRegisterNameError] = useState("");
-  const [registerEmailError, setRegisterEmailError] = useState("");
-  const [registerPasswordError, setRegisterPasswordError] = useState("");
+  const [resetState, setResetState] = useState(null);
 
   return (
     <>
@@ -46,18 +28,9 @@ function AuthMain({ isModalOpen, setIsModalOpen }) {
         onClose={() => {
           setIsModalOpen(false);
           setModalType("login");
-          setLoginPasswordError("");
-          setLoginEmailError("");
-          setRegisterPasswordError("");
-          setRegisterEmailError("");
-          setRegisterNameError("");
-          setLoginPassword("");
-          setLoginEmail("");
-          setRegisterPassword("");
-          setRegisterEmail("");
-          setRegisterName("");
-          setForgotEmail("");
-          setForgotEmailError("");
+          if (resetState) {
+            resetState();
+          }
         }}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
@@ -84,45 +57,20 @@ function AuthMain({ isModalOpen, setIsModalOpen }) {
           </Box>
           {modalType === "login" && (
             <LoginComponent
-              loginEmail={loginEmail}
-              setLoginEmail={setLoginEmail}
-              loginEmailError={loginEmailError}
-              showLoginPassword={showLoginPassword}
-              loginPassword={loginPassword}
-              setLoginPassword={setLoginPassword}
-              loginPasswordError={loginPasswordError}
-              setLoginEmailError={setLoginEmailError}
-              setLoginPasswordError={setLoginPasswordError}
-              setShowLoginPassword={setShowLoginPassword}
               setModalType={setModalType}
+              setResetState={setResetState}
             />
           )}
           {modalType === "signup" && (
             <SignupComponent
               setModalType={setModalType}
-              registerName={registerName}
-              setRegisterName={setRegisterName}
-              registerNameError={registerNameError}
-              registerEmail={registerEmail}
-              registerEmailError={registerEmailError}
-              showRegisterPassword={showRegisterPassword}
-              registerPassword={registerPassword}
-              registerPasswordError={registerPasswordError}
-              setRegisterEmail={setRegisterEmail}
-              setRegisterPassword={setRegisterPassword}
-              setRegisterPasswordError={setRegisterPasswordError}
-              setRegisterEmailError={setRegisterEmailError}
-              setRegisterNameError={setRegisterNameError}
-              setShowRegisterPassword={setShowRegisterPassword}
+              setResetState={setResetState}
             />
           )}
           {modalType === "forgotPassword" && (
             <ForgotPasswordComponent
-              setForgotEmailError={setForgotEmailError}
-              setForgotEmail={setForgotEmail}
-              forgotEmail={forgotEmail}
-              forgotEmailError={forgotEmailError}
               setModalType={setModalType}
+              setResetState={setResetState}
             />
           )}
         </Box>

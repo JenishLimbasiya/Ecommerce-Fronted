@@ -9,27 +9,50 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-export default function signupComponent(props) {
+export default function SignupComponent(props) {
   const {
-    registerName,
-    setRegisterName,
-    registerNameError,
-    registerEmail,
-    registerEmailError,
-    showRegisterPassword,
-    registerPassword,
-    registerPasswordError,
-    setRegisterEmail,
-    setRegisterPassword,
-    setRegisterPasswordError,
-    setRegisterEmailError,
-    setRegisterNameError,
-    setShowRegisterPassword,
+    // registerName,
+    // setRegisterName,
+    // registerNameError,
+    // registerEmail,
+    // registerEmailError,
+    // showRegisterPassword,
+    // registerPassword,
+    // registerPasswordError,
+    // setRegisterEmail,
+    // setRegisterPassword,
+    // setRegisterPasswordError,
+    // setRegisterEmailError,
+    // setRegisterNameError,
+    // setShowRegisterPassword,
     setModalType,
+    setResetState,
   } = props;
+
+  const [registerName, setRegisterName] = useState("");
+  const [registerEmail, setRegisterEmail] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
+  const [showRegisterPassword, setShowRegisterPassword] = useState(false);
+  const [registerNameError, setRegisterNameError] = useState("");
+  const [registerEmailError, setRegisterEmailError] = useState("");
+  const [registerPasswordError, setRegisterPasswordError] = useState("");
+
+  const resetSignupState = () => {
+    setRegisterName("");
+    setRegisterEmail("");
+    setRegisterPassword("");
+    setShowRegisterPassword(false);
+    setRegisterNameError("");
+    setRegisterEmailError("");
+    setRegisterPasswordError("");
+  };
+
+  useEffect(() => {
+    setResetState(resetSignupState);
+  }, []);
 
   const handleRegisterSubmit = (event) => {
     event.preventDefault();
