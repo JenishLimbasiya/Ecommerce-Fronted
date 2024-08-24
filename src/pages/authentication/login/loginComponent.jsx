@@ -12,9 +12,13 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import GoogleIcon from "@mui/icons-material/Google";
 import PhoneIcon from "@mui/icons-material/Phone";
 import Divider from "@mui/material/Divider";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../../../store/authSlices";
+import Constant from "../../../util/constant";
 
 function LoginComponent(props) {
   const { setModalType, setResetState } = props;
+  const dispatch = useDispatch();
 
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
@@ -58,6 +62,19 @@ function LoginComponent(props) {
     }
 
     if (isValid) {
+      dispatch(loginUser(value)).then((resultAction) => {
+        if (loginUser.fulfilled.match(resultAction)) {
+          window.localStorage.setItem(
+            Constant.LOCALSTORAGEKEYS.ACCESSTOKEN,
+            resultAction?.payload?.data?.accessToken
+          );
+          window.localStorage.setItem(
+            Constant.LOCALSTORAGEKEYS.REFRESHTOKEN,
+            resultAction?.payload?.data?.refreshToken
+          );
+        }
+      });
+
       console.log("Login form submitted successfully");
     }
   };
