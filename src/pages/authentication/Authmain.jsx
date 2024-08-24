@@ -4,6 +4,7 @@ import Logo from "../../../public/Logo.jpg";
 import LoginComponent from "./login/LoginComponent";
 import SignupComponent from "./signUp/SignupComponent";
 import ForgotPasswordComponent from "./forgotPassword/ForgotPasswordComponent";
+import Toast from "../Toast";
 
 const style = {
   position: "absolute",
@@ -20,6 +21,8 @@ const style = {
 function AuthMain({ isModalOpen, setIsModalOpen }) {
   const [modalType, setModalType] = useState("login");
   const [resetState, setResetState] = useState(null);
+  // const [toast, setToast] = useState(false);
+  // const [toastSeverity, setToastSeverity] = useState("success");
 
   return (
     <>
@@ -59,6 +62,9 @@ function AuthMain({ isModalOpen, setIsModalOpen }) {
             <LoginComponent
               setModalType={setModalType}
               setResetState={setResetState}
+              setIsModalOpen={setIsModalOpen}
+              // setToast={setToast}
+              // setToastSeverity={setToastSeverity}
             />
           )}
           {modalType === "signup" && (
@@ -75,6 +81,8 @@ function AuthMain({ isModalOpen, setIsModalOpen }) {
           )}
         </Box>
       </Modal>
+
+      {/* <Toast toast={toast} setToast={setToast} severity={toastSeverity} /> */}
     </>
   );
 }

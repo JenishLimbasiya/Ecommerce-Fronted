@@ -14,10 +14,17 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import Divider from "@mui/material/Divider";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../../store/authSlices";
+import { showToast } from "../../../store/toastSlice";
 import Constant from "../../../util/constant";
 
 function LoginComponent(props) {
-  const { setModalType, setResetState } = props;
+  const {
+    setModalType,
+    setResetState,
+    setIsModalOpen,
+    setToast,
+    setToastSeverity,
+  } = props;
   const dispatch = useDispatch();
 
   const [loginEmail, setLoginEmail] = useState("");
@@ -69,18 +76,34 @@ function LoginComponent(props) {
     if (isValid) {
       dispatch(loginUser(data)).then((resultAction) => {
         if (loginUser.fulfilled.match(resultAction)) {
+          console.log("insdie if");
+          dispatch(
+            showToast({
+              message: resultAction?.payload?.data?.message,
+              severity: "success",
+            })
+          );
+
           window.localStorage.setItem(
             Constant.LOCALSTORAGEKEYS.ACCESSTOKEN,
-            resultAction?.payload?.data?.accessToken
+            resultAction?.payload?.data?.data?.accessToken
           );
           window.localStorage.setItem(
             Constant.LOCALSTORAGEKEYS.REFRESHTOKEN,
-            resultAction?.payload?.data?.refreshToken
+            resultAction?.payload?.data?.data?.refreshToken
+          );
+        } else if (loginUser.rejected.match(resultAction)) {
+          console.log("insdie else");
+          console.log("result ================> ", resultAction);
+          dispatch(
+            showToast({
+              message: resultAction?.error?.message,
+              severity: "error",
+            })
           );
         }
+        setIsModalOpen(false);
       });
-
-      console.log("Login form submitted successfully");
     }
   };
 
