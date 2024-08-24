@@ -61,8 +61,13 @@ function LoginComponent(props) {
       isValid = false;
     }
 
+    const data = {
+      email: loginEmail,
+      password: loginPassword,
+    };
+
     if (isValid) {
-      dispatch(loginUser(value)).then((resultAction) => {
+      dispatch(loginUser(data)).then((resultAction) => {
         if (loginUser.fulfilled.match(resultAction)) {
           window.localStorage.setItem(
             Constant.LOCALSTORAGEKEYS.ACCESSTOKEN,
