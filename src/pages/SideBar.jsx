@@ -16,12 +16,24 @@ import { SIDEBAR } from "../api/endPoints";
 import FruitsAndVegetables from "../../public/Fruits & Vegetables.svg";
 import HealthAndBeauty from "../../public/Health & Beauty.svg";
 import Beverage from "../../public/Beverage.svg";
-import Breakfast from "../../Breakfast.svg";
-import Cooking from "../../Cooking.svg";
+import Breakfast from "../../public/Breakfast.svg";
+import Cooking from "../../public/Cooking.svg";
 import Dairy from "../../public/Dairy.svg";
 import HomeAndCleaning from "../../public/Home & Cleaning.svg";
 import Snacks from "../../public/Snacks.svg";
 import PetAndCare from "../../public/Pet Care.svg";
+
+const iconMap = {
+  "Fruits & Vegetables": FruitsAndVegetables,
+  "Health & Beauty": HealthAndBeauty,
+  Beverage: Beverage,
+  Breakfast: Breakfast,
+  Cooking: Cooking,
+  Dairy: Dairy,
+  "Home & Cleaning": HomeAndCleaning,
+  Snacks: Snacks,
+  "Pet Care": PetAndCare,
+};
 
 export default function SideBar() {
   const [data, setData] = useState([]);
@@ -45,17 +57,15 @@ export default function SideBar() {
   };
 
   const renderIcon = (iconName) => {
-    console.log("iconName", iconName);
-    if ("apple" === "apple") {
+    const iconSrc = iconMap[iconName];
+
+    if (iconSrc) {
       return (
-        <img
-          src={FruitsAndVegetables}
-          alt="Apple"
-          style={{ width: 21, height: 21 }}
-        />
+        <img src={iconSrc} alt={iconName} style={{ width: 21, height: 21 }} />
       );
     }
-    return <CategoryIcon style={{ color: "#007b63", fontSize: 24 }} />;
+
+    return <CategoryIcon style={{ color: "#007b63", fontSize: 21 }} />;
   };
 
   return (
