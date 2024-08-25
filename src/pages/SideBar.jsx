@@ -10,10 +10,18 @@ import {
 } from "@mui/material";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import CategoryIcon from "@mui/icons-material/Category"; // Placeholder icon
+import CategoryIcon from "@mui/icons-material/Category";
 import instance from "../hooks/axios";
-import { ReactComponent as AppleIcon } from "../../public/apple.svg";
 import { SIDEBAR } from "../api/endPoints";
+import FruitsAndVegetables from "../../public/Fruits & Vegetables.svg";
+import HealthAndBeauty from "../../public/Health & Beauty.svg";
+import Beverage from "../../public/Beverage.svg";
+import Breakfast from "../../Breakfast.svg";
+import Cooking from "../../Cooking.svg";
+import Dairy from "../../public/Dairy.svg";
+import HomeAndCleaning from "../../public/Home & Cleaning.svg";
+import Snacks from "../../public/Snacks.svg";
+import PetAndCare from "../../public/Pet Care.svg";
 
 export default function SideBar() {
   const [data, setData] = useState([]);
@@ -36,6 +44,20 @@ export default function SideBar() {
     setOpenItem((prevOpenItem) => (prevOpenItem === id ? null : id));
   };
 
+  const renderIcon = (iconName) => {
+    console.log("iconName", iconName);
+    if ("apple" === "apple") {
+      return (
+        <img
+          src={FruitsAndVegetables}
+          alt="Apple"
+          style={{ width: 21, height: 21 }}
+        />
+      );
+    }
+    return <CategoryIcon style={{ color: "#007b63", fontSize: 24 }} />;
+  };
+
   return (
     <Box
       sx={{
@@ -49,10 +71,10 @@ export default function SideBar() {
     >
       <List component="nav">
         {data.map((category) => (
-          <div key={category._id}>
+          <div key={category?._id}>
             <ListItem
               button
-              onClick={() => handleToggle(category._id)}
+              onClick={() => handleToggle(category?._id)}
               sx={{
                 padding: "12px 16px",
                 borderRadius: "8px", // Rounded corners for list items
@@ -63,9 +85,7 @@ export default function SideBar() {
               }}
             >
               <Box sx={{ display: "flex", alignItems: "center" }}>
-                <ListItemIcon>
-                  <AppleIcon />
-                </ListItemIcon>
+                <ListItemIcon> {renderIcon(category?.name)} </ListItemIcon>
                 <Typography
                   variant="body2" // Enforces 14px font size
                   sx={{
@@ -75,22 +95,22 @@ export default function SideBar() {
                     letterSpacing: "normal",
                   }}
                 >
-                  {category.name}
+                  {category?.name}
                 </Typography>
               </Box>
-              {openItem === category._id ? (
+              {openItem === category?._id ? (
                 <ExpandLessIcon sx={{ fontSize: "16px", color: "#007b63" }} />
               ) : (
                 <ExpandMoreIcon sx={{ fontSize: "16px", color: "#007b63" }} />
               )}
             </ListItem>
             <Collapse
-              in={openItem === category._id}
+              in={openItem === category?._id}
               timeout="auto"
               unmountOnExit
             >
               <List component="div" disablePadding>
-                {category.innerCategories.map((subCategory) => (
+                {category?.innerCategories.map((subCategory) => (
                   <ListItem
                     key={subCategory._id}
                     sx={{
