@@ -93,11 +93,13 @@ function LoginComponent(props) {
             resultAction?.payload?.data?.data?.refreshToken
           );
         } else if (loginUser.rejected.match(resultAction)) {
-          console.log("insdie else");
-          console.log("result ================> ", resultAction);
+          console.log(
+            "result ================> ",
+            resultAction.payload.message
+          );
           dispatch(
             showToast({
-              message: resultAction?.error?.message,
+              message: resultAction?.payload?.message,
               severity: "error",
             })
           );
