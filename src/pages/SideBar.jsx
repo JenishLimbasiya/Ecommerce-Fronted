@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import {
   List,
   ListItem,
-  ListItemText,
   ListItemIcon,
   Collapse,
   Box,
@@ -61,22 +60,22 @@ export default function SideBar() {
 
     if (iconSrc) {
       return (
-        <img src={iconSrc} alt={iconName} style={{ width: 21, height: 21 }} />
+        <img src={iconSrc} alt={iconName} style={{ width: 20, height: 20 }} />
       );
     }
 
-    return <CategoryIcon style={{ color: "#007b63", fontSize: 21 }} />;
+    return <CategoryIcon style={{ color: "#007b63", fontSize: 20 }} />;
   };
 
   return (
     <Box
       sx={{
         width: "240px",
-        backgroundColor: "#f9f9f9", // Softer light background color
-        borderRadius: "12px", // Slightly larger border-radius for a more modern look
-        overflow: "hidden", // Prevent content from overflowing
-        boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.1)", // A bit more shadow for better depth
-        padding: "8px", // Add padding around the sidebar
+        backgroundColor: "#f9f9f9",
+        borderRadius: "12px",
+        overflow: "hidden",
+        boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.1)",
+        padding: "8px",
       }}
     >
       <List component="nav">
@@ -87,22 +86,29 @@ export default function SideBar() {
               onClick={() => handleToggle(category?._id)}
               sx={{
                 padding: "12px 16px",
-                borderRadius: "8px", // Rounded corners for list items
-                marginBottom: "4px", // Space between items
+                borderRadius: "8px",
+                marginBottom: "4px",
+                marginLeft: "8px",
+                marginRight: "8px",
+                marginTop: "8px",
+                marginBottom: "8px",
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "space-between", // Space between icon and text
+                justifyContent: "space-between",
               }}
             >
-              <Box sx={{ display: "flex", alignItems: "center" }}>
-                <ListItemIcon> {renderIcon(category?.name)} </ListItemIcon>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+                <ListItemIcon sx={{ minWidth: 0, marginRight: 1 }}>
+                  {renderIcon(category?.name)}
+                </ListItemIcon>
                 <Typography
-                  variant="body2" // Enforces 14px font size
+                  variant="body2"
                   sx={{
                     color: "#333333",
                     fontSize: "14px",
                     fontWeight: 500,
                     letterSpacing: "normal",
+                    marginLeft: 1,
                   }}
                 >
                   {category?.name}
@@ -119,21 +125,28 @@ export default function SideBar() {
               timeout="auto"
               unmountOnExit
             >
-              <List component="div" disablePadding>
+              <List
+                component="div"
+                disablePadding
+                sx={{
+                  marginLeft: 6,
+                  // marginRight: "8px",
+                }}
+              >
                 {category?.innerCategories.map((subCategory) => (
                   <ListItem
                     key={subCategory._id}
                     sx={{
-                      pl: "60px", // Increased left margin for innerCategories
                       padding: "6px 16px",
+                      marginTop: "5px",
+                      marginBottom: "5px",
                     }}
                   >
                     <Typography
-                      variant="body2" // Enforces 14px font size for innerCategories
+                      variant="body2"
                       sx={{
                         color: "#555555",
                         fontSize: "14px",
-                        ml: "55px",
                       }}
                     >
                       {subCategory.name}
