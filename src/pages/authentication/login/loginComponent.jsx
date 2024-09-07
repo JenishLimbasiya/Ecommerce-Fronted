@@ -18,13 +18,7 @@ import { showToast } from "../../../store/toastSlice";
 import Constant from "../../../util/constant";
 
 function LoginComponent(props) {
-  const {
-    setModalType,
-    setResetState,
-    setIsModalOpen,
-    setToast,
-    setToastSeverity,
-  } = props;
+  const { setModalType, setResetState, setIsModalOpen } = props;
   const dispatch = useDispatch();
 
   const [loginEmail, setLoginEmail] = useState("");
@@ -76,7 +70,6 @@ function LoginComponent(props) {
     if (isValid) {
       dispatch(loginUser(data)).then((resultAction) => {
         if (loginUser.fulfilled.match(resultAction)) {
-          console.log("insdie if");
           dispatch(
             showToast({
               message: resultAction?.payload?.data?.message,
@@ -93,10 +86,6 @@ function LoginComponent(props) {
             resultAction?.payload?.data?.data?.refreshToken
           );
         } else if (loginUser.rejected.match(resultAction)) {
-          console.log(
-            "result ================> ",
-            resultAction.payload.message
-          );
           dispatch(
             showToast({
               message: resultAction?.payload?.message,

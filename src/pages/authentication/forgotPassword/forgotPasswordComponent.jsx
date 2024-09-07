@@ -8,12 +8,16 @@ import {
 } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { showToast } from "../../../store/toastSlice";
+import { useDispatch } from "react-redux";
+import { instance } from "../../../hooks/axios";
+import { FORGOT_PASSWORD } from "../../../api/endPoints";
 
 function ForgotPasswordComponent(props) {
-  const { setModalType, setResetState } = props;
-
+  const { setModalType, setResetState, setIsModalOpen } = props;
   const [forgotEmail, setForgotEmail] = useState("");
   const [forgotEmailError, setForgotEmailError] = useState("");
+  const dispatch = useDispatch();
 
   const resetForgotState = () => {
     setForgotEmail("");
@@ -24,16 +28,35 @@ function ForgotPasswordComponent(props) {
     setResetState(resetForgotState);
   }, []);
 
-  const handleForgotPasswordSubmit = (event) => {
+  const handleForgotPasswordSubmit = async (event) => {
     event.preventDefault();
 
     if (!forgotEmail) {
       setForgotEmailError("You must provide your email address");
       return false;
     }
+
+    try {
+      const data = { email: forgotEmail };
+      const response = await instance.post(FORGOT_PASSWORD, data);
+      dispatch(
+        showToast({
+          message: response.data.message,
+          severity: "success",
+        })
+      );
+    } catch (error) {
+      dispatch(
+        showToast({
+          message: error.response?.data?.message,
+          severity: "error",
+        })
+      );
+    }
+
     setForgotEmailError("");
     setForgotEmail("");
-    console.log("Forgot password form submitted successfully");
+    setIsModalOpen(false);
   };
 
   const handleForgotEmailChange = (e) => {

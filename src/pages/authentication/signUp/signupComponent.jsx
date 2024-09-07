@@ -11,26 +11,13 @@ import {
 } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { SIGNUP } from "../../../api/endPoints";
+import { instance } from "../../../hooks/axios";
+import { useDispatch } from "react-redux";
+import { showToast } from "../../../store/toastSlice";
 
 export default function SignupComponent(props) {
-  const {
-    // registerName,
-    // setRegisterName,
-    // registerNameError,
-    // registerEmail,
-    // registerEmailError,
-    // showRegisterPassword,
-    // registerPassword,
-    // registerPasswordError,
-    // setRegisterEmail,
-    // setRegisterPassword,
-    // setRegisterPasswordError,
-    // setRegisterEmailError,
-    // setRegisterNameError,
-    // setShowRegisterPassword,
-    setModalType,
-    setResetState,
-  } = props;
+  const { setModalType, setResetState, setIsModalOpen } = props;
 
   const [registerName, setRegisterName] = useState("");
   const [registerEmail, setRegisterEmail] = useState("");
@@ -39,6 +26,7 @@ export default function SignupComponent(props) {
   const [registerNameError, setRegisterNameError] = useState("");
   const [registerEmailError, setRegisterEmailError] = useState("");
   const [registerPasswordError, setRegisterPasswordError] = useState("");
+  const dispatch = useDispatch();
 
   const resetSignupState = () => {
     setRegisterName("");
@@ -54,7 +42,7 @@ export default function SignupComponent(props) {
     setResetState(resetSignupState);
   }, []);
 
-  const handleRegisterSubmit = (event) => {
+  const handleRegisterSubmit = async (event) => {
     event.preventDefault();
     let isValid = true;
     setRegisterNameError("");
@@ -80,8 +68,31 @@ export default function SignupComponent(props) {
     }
 
     if (isValid) {
-      console.log("Registration form submitted successfully");
+      const data = {
+        fullName: registerName,
+        email: registerEmail,
+        password: registerPassword,
+      };
+
+      try {
+        const response = await instance.post(SIGNUP, data);
+        dispatch(
+          showToast({
+            message: response.data.message,
+            severity: "success",
+          })
+        );
+      } catch (error) {
+        dispatch(
+          showToast({
+            message: error.response?.data?.message,
+            severity: "error",
+          })
+        );
+      }
     }
+
+    setIsModalOpen(false);
   };
 
   const handleChangeRegister = (e) => {

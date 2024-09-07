@@ -21,8 +21,6 @@ const style = {
 function AuthMain({ isModalOpen, setIsModalOpen }) {
   const [modalType, setModalType] = useState("login");
   const [resetState, setResetState] = useState(null);
-  // const [toast, setToast] = useState(false);
-  // const [toastSeverity, setToastSeverity] = useState("success");
 
   return (
     <>
@@ -63,20 +61,20 @@ function AuthMain({ isModalOpen, setIsModalOpen }) {
               setModalType={setModalType}
               setResetState={setResetState}
               setIsModalOpen={setIsModalOpen}
-              // setToast={setToast}
-              // setToastSeverity={setToastSeverity}
             />
           )}
           {modalType === "signup" && (
             <SignupComponent
               setModalType={setModalType}
               setResetState={setResetState}
+              setIsModalOpen={setIsModalOpen}
             />
           )}
           {modalType === "forgotPassword" && (
             <ForgotPasswordComponent
               setModalType={setModalType}
               setResetState={setResetState}
+              setIsModalOpen={setIsModalOpen}
             />
           )}
         </Box>
