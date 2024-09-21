@@ -4,6 +4,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import ShoppingBasketRoundedIcon from "@mui/icons-material/ShoppingBasketRounded";
 import instance from "../hooks/axios"; // Your axios instance
 import { ITEMCARD } from "../api/endPoints"; // Your API endpoint
+import { Link } from "react-router-dom";
 
 export default function ItemCardList() {
   const [data, setData] = useState([]);
@@ -69,19 +70,23 @@ function ItemCard({ item }) {
         </div>
       )}
 
-      <div className="h-[256px] w-full bg-red-500">
-        <img
-          src={item?.productImage?.[item?.productImage?.length - 1]}
-          alt={item?.name || "Product"}
-          className="h-full w-full object-cover"
-        />
-      </div>
+      <Link to={`/ProductDetails/${item?._id}`}>
+        <div className="h-[256px] w-full bg-red-500">
+          <img
+            src={item?.productImage?.[item?.productImage?.length - 1]}
+            alt={item?.name || "Product"}
+            className="h-full w-full object-cover"
+          />
+        </div>
+      </Link>
 
       <div className="flex flex-col justify-between h-full px-5 py-6">
         <div>
-          <h2 className="text-sm font-semibold mb-2">
-            {item?.name || "Unnamed Product"}
-          </h2>
+          <Link to={`/ProductDetails/${item?._id}`}>
+            <h2 className="text-sm font-semibold mb-2">
+              {item?.name || "Unnamed Product"}
+            </h2>
+          </Link>
           <p className="text-gray-400 text-xs">
             {item?.productValue || "No description"}
           </p>

@@ -10,7 +10,7 @@ export default function App() {
       <Toast />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/ProductDetails" element={<ProductDetails />} />
+        <Route path="/ProductDetails/:id" element={<ProductDetails />} />
       </Routes>
     </React.Fragment>
   );
