@@ -74,3 +74,20 @@
     @apply bg-background text-foreground;
   }
 }
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 3.5px; /* Width of the scrollbar */
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #f9f9f9; /* Background of the track */
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #007b63; /* Color of the scrollbar thumb */
+  border-radius: 4px; /* Rounded corners for the scrollbar thumb */
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #005a47; /* Darker color on hover */
+}

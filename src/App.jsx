@@ -1,4 +1,4 @@
-import Index from "./pages/Index";
+import HomePage from "./pages/HomePage";
 import { Routes, Route } from "react-router-dom";
 import Toast from "./pages/Toast";
 import React from "react";
@@ -8,7 +8,7 @@ export default function App() {
     <React.Fragment>
       <Toast />
       <Routes>
-        <Route path="/" element={<Index />} />
+        <Route path="/" element={<HomePage />} />
       </Routes>
     </React.Fragment>
   );

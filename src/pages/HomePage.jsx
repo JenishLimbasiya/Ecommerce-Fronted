@@ -2,15 +2,17 @@ import React from "react";
 import Header from "./Header";
 import Dashboard from "./Dashboard";
 import Sliders from "./Sliders";
-import SideBar from "./SideBar";
+import Product from "./Product";
 
-export default function Index() {
+const HomePage = () => {
   return (
-    <div>
+    <>
       <Header />
       <Dashboard />
       <Sliders />
-      <SideBar />
-    </div>
+      <Product />
+    </>
   );
-}
+};
+
+export default HomePage;

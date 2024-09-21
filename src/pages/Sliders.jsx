@@ -24,7 +24,7 @@ const images = [
 
 export default function Sliders() {
   return (
-    <div className="w-full">
+    <div className="w-full border-t border-b border-gray-100">
       <div className="w-full py-8 px-6">
         <Carousel
           opts={{

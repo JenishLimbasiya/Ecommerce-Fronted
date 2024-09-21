@@ -70,13 +70,16 @@ export default function SideBar() {
   return (
     <Box
       sx={{
+        position: "sticky",
+        top: 80,
+        height: "calc(100vh - 80px)",
         width: "240px",
-        backgroundColor: "#f9f9f9",
-        borderRadius: "12px",
-        overflow: "hidden",
+        backgroundColor: "#ffffff",
+        overflowY: "auto",
         boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.1)",
         padding: "8px",
       }}
+      className="scrollbar-thin"
     >
       <List component="nav">
         {data.map((category) => (
@@ -130,7 +133,6 @@ export default function SideBar() {
                 disablePadding
                 sx={{
                   marginLeft: 6,
-                  // marginRight: "8px",
                 }}
               >
                 {category?.innerCategories.map((subCategory) => (
