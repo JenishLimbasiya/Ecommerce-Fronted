@@ -3,3 +3,4 @@ export const SIGNUP = "auth/signup";
 export const FORGOT_PASSWORD = "auth/forgotPassword";
 
 export const SIDEBAR = "subCategory/subCategoryList";
+export const ProductDetails = "product/productdetails";
