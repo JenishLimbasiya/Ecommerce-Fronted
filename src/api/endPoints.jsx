@@ -4,3 +4,4 @@ export const FORGOT_PASSWORD = "auth/forgotPassword";
 
 export const SIDEBAR = "subCategory/subCategoryList";
 export const ITEMCARD = "product/productList";
+export const ProductDetails = "product/productdetails";
